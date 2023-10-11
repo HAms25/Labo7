@@ -12,7 +12,7 @@ namespace Data
 {
     public class DProduct
     {
-        private readonly string connectionString = "Data Source=LAB1504-27\\SQLEXPRESS;Initial Catalog=Neptuno3;User ID=admin;Password=admin";
+        private readonly string connectionString = "Data Source=LAB1504-27\\SQLEXPRESS;Initial Catalog=Lab5;User ID=hilari;Password=hilari123";
 
         public List<Product> Get()
         {
@@ -22,7 +22,7 @@ namespace Data
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand("ListarProducto", connection))
+                using (SqlCommand command = new SqlCommand("listarProductos", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
@@ -32,9 +32,10 @@ namespace Data
                         {
                             Product product = new Product
                             {
-                                Name = reader["Name"].ToString(),
-                                Price = (decimal)reader["Price"],
-                                Stock = (int)reader["Stock"]
+                                name = reader["Name"].ToString(),
+                                price = (decimal)reader["Price"],
+                                stock = (int)reader["Stock"],
+                                active = (bool)reader["Active"]
                             };
                             products.Add(product);
                         }

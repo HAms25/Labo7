@@ -8,12 +8,13 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBox x:Name="txtSearch" Grid.Row="0" Margin="10" Width="300" Height="30"/>
-        <Button x:Name="btnSearch" Grid.Row="1" Margin="10" Width="100" Height="30" Content="Search" Click="btnSearch_Click"/>
-        <TextBox x:Name="txtResult" Grid.Row="2" Margin="10" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+
+        <TextBox x:Name="txtName" Margin="10" Grid.Row="0" Width="250" />
+        <Button Content="Buscar" Click="Button_Click" Margin="10" Grid.Row="1" Width="100" />
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" Margin="10" Grid.Row="2" />
     </Grid>
 </Window>

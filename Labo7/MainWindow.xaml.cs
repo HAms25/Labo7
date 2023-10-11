@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Business;
+using Entity;
 
 namespace Labo7
 {
@@ -20,9 +22,20 @@ namespace Labo7
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Business.BProduct business;
+
         public MainWindow()
         {
             InitializeComponent();
+            business = new Business.BProduct();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string searchName = txtName.Text;
+            List<Product> products = business.GetByName(searchName);
+
+            dataGrid.ItemsSource = products;
         }
     }
 }
